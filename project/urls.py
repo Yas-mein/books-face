@@ -36,3 +36,4 @@ urlpatterns = [
     
     path('recognation/',vfr.face_recognition_api ),
     path('recognation/cs/',vfr.capture_and_save_image ),
+]
