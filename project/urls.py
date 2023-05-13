@@ -17,8 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path 
 from django.conf.urls.static import static
-from Books import views as vb
-from Books.views import ToggleFavoriteBook
+# from Books import views as vb
+# from Books.views import ToggleFavoriteBook
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from facerecognition import views as vfr
@@ -27,13 +27,20 @@ from facerecognition import views as vfr
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('api/all-books/',vb.BookListAPIView.as_view()),
-    path('api/all-books/<int:pk>',vb.oneBOOK.as_view()),
-    path('api/all-books/<int:pk>/favorit',ToggleFavoriteBook.as_view(), name='toggle_favorite_book'),
-    path('api/favorite-books/', vb.FavoriteBooksList.as_view(), name='favorite_books_list'),
-    # update all books with their new_position
-    path('api/all-books/<int:pk>/update/', vb.BUpdateAPI.as_view()),
-    
+    # path('api/all-books/',vb.BookListAPIView.as_view()),
+    # path('api/all-books/<int:pk>',vb.oneBOOK.as_view()),
+    # path('api/all-books/<int:pk>/favorit',ToggleFavoriteBook.as_view(), name='toggle_favorite_book'),
+    # path('api/favorite-books/', vb.FavoriteBooksList.as_view(), name='favorite_books_list'),
+    # # update all books with their new_position
+    # path('api/all-books/<int:pk>/update/', vb.BUpdateAPI.as_view()),
+    path('send/', vfr.handle_request),
     path('recognation/',vfr.face_recognition_api ),
     path('recognation/cs/',vfr.capture_and_save_image ),
+
+
+
+
+
+
+
 ]

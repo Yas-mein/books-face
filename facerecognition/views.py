@@ -136,11 +136,11 @@ from django.views.decorators.csrf import csrf_exempt
 
         
 # ##################################
-
+@csrf_exempt
 def handle_request(request):
     if request.method == 'POST':
         default_camera = int(request.POST.get('defaultCameraIndex').strip("'"))
-        # print(default_camera)
+        print(default_camera)
         # return HttpResponse(default_camera)
         return default_camera
     elif request.method == 'GET':
@@ -196,10 +196,10 @@ def generate_frames(request):
             # Print name of recognized face
             if match_index >= 0:
                 name = known_labels[match_index]
-                # print(name)
+                print(name)
             else:
                 name = 'unknown'
-                # print(name)
+                print(name)
             cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
             # Encode the frame as JPEG image
             _, jpeg_frame = cv2.imencode('.jpg', frame)
