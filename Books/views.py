@@ -2,11 +2,11 @@
 
 from .serializers import *
 from rest_framework import generics
-from django.urls import reverse
+# from django.urls import reverse
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 from django_filters import rest_framework as filters
-from django.shortcuts import get_object_or_404
+# from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 ######################3
 
