@@ -2,14 +2,9 @@ FROM python:3.10
 
 WORKDIR /app
 
-# Install dlib dependencies
+# Install dlib and libxcb-xinerama0 dependencies
 RUN apt-get update && \
-    apt-get install -y build-essential cmake && \
-    apt-get install -y libopenblas-dev liblapack-dev && \
-    apt-get install -y libx11-dev libgtk-3-dev && \
-    apt-get install -y python3 python3-dev python3-pip && \
-    apt-get install -y python3-numpy python3-scipy && \
-    apt-get install -y python3-matplotlib
+    apt-get install -y build-essential cmake libopenblas-dev liblapack-dev libx11-dev libgtk-3-dev python3 python3-dev python3-pip python3-numpy python3-scipy python3-matplotlib libxcb-xinerama0
 
 # Download dlib source code
 RUN git clone https://github.com/davisking/dlib.git
